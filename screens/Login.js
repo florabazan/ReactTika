@@ -19,7 +19,10 @@ export default function Login({ navigation }) {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       Alert.alert("Login exitoso", "Has iniciado sesión correctamente.");
-      navigation.reset({ index: 0, routes: [{ name: 'Home' }] });
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'MainApp' }],
+      });
     } catch (error) {
       let errorMessage = "Hubo un problema al iniciar sesión.";
       switch (error.code) {
@@ -43,7 +46,7 @@ export default function Login({ navigation }) {
   return (
     <LinearGradient colors={['#f3e5f5', '#f8bbd0']} style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
-        <Image source={require('../assets/logo.png')} style={styles.logo} />
+        <Image source={require('../assets/tika-logo.png')} style={styles.logo} />
         <Text style={styles.title}>¡Hola de nuevo!</Text>
         <Text style={styles.subtitle}>Inicia sesión para continuar</Text>
 
